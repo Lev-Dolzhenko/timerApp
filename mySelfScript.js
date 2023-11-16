@@ -1,14 +1,13 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
 
-    let $timeStart = document.querySelector('.time-start');
     let $timeEnd = document.querySelector('.time-end');
     let $timeButton = document.querySelector('.time-button');
     let $days = document.querySelector('.timer__days');
     let $hours = document.querySelector('.timer__hours');
     let $minutes = document.querySelector('.timer__minutes');
     let $seconds = document.querySelector('.timer__seconds');
+    
+    $timeEnd.placeholder = new Date().toLocaleDateString().split('.').reverse().join('.');
 
 
     $timeButton.addEventListener('click', countdownTimer);
@@ -21,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function countdownTimer() {
         const deadline = new Date($timeEnd.value);
-        const diff = deadline - new Date();
+
+        const diff = Math.abs(deadline - new Date());
+
         if (diff <= 0) {
             clearInterval(timerId);
         }
@@ -43,3 +44,4 @@ document.addEventListener('DOMContentLoaded', function () {
         timerId = setInterval(countdownTimer, 1000);
     }
 })
+

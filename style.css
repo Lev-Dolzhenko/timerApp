@@ -1,26 +1,93 @@
+body {
+  background-color: #616161;
+  font-family: 'Roboto', sans-serif;
+}
+
+.timer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .timer__items {
-    display: flex;
-    font-size: 48px;
-  }
-  .timer__item {
-    position: relative;
-    min-width: 60px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-bottom: 15px;
-    text-align: center;
-  }
-  .timer__item::before {
-    content: attr(data-title);
-    display: block;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    font-size: 14px;
-  }
-  .timer__item:not(:last-child)::after {
-    content: ':';
-    position: absolute;
-    right: -15px;
-  }
+  display: flex;
+  font-size: 48px;
+
+  margin-bottom: 30px;
+}
+
+.timer__inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.time-end {
+  border: 1px solid;
+  border-radius: 10px;
+
+  width: 120px;
+  height: 30px;
+
+  text-align: center;
+}
+
+.time-end:focus {
+  background-color: #b1b1b1;
+}
+
+.time-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+
+  padding: 10px 15px;
+  height: 30px;
+  width: 100px;
+
+  border-radius: 12px;
+  background: #333333;
+
+  font-size: 16px;
+  color: #fff;
+
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+.time-button:hover,
+.time-button:focus {
+  background-color: #b1b1b1;
+  color: #222222;
+}
+
+.time-button:active {
+  background-color: #222222;
+}
+
+.timer__item {
+  position: relative;
+  min-width: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.timer__item::before {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+.timer__item:not(:last-child)::after {
+  content: ':';
+  position: absolute;
+  right: -15px;
+}
